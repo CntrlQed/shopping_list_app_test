@@ -15,6 +15,8 @@ class _ShoppingListPageState extends State<ShoppingListPage> {
     ShoppingItem(name: 'Milk', quantity: 2, category: 'Groceries', priority: Priority.high),
     ShoppingItem(name: 'Avocado', quantity: 4, category: 'Groceries', priority: Priority.medium),
     ShoppingItem(name: 'Cheese', quantity: 1, category: 'Groceries', priority: Priority.low),
+    ShoppingItem(name: 'Honey', quantity: 1, category: 'Groceries', priority: Priority.low),
+    ShoppingItem(name: 'Dettol', quantity: 1, category: 'Medicine', priority: Priority.high),
   ];
 
   void toggleCompletion(int index) {
@@ -66,7 +68,7 @@ class _ShoppingListPageState extends State<ShoppingListPage> {
             });
           }
         },
-        backgroundColor: Colors.orange,
+        backgroundColor: Color.fromARGB(167, 7, 109, 12),
         child: const Icon(Icons.add),
       ),
     );
