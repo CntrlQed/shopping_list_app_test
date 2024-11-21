@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_list_app/screens/add_item.dart';
 import '../widgets/item_tile.dart';
 import '../models/shopping_item.dart';
 
@@ -22,6 +23,12 @@ class _ShoppingListPageState extends State<ShoppingListPage> {
     });
   }
 
+  void deleteItem(int index) {
+    setState(() {
+      items.removeAt(index);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,12 +41,30 @@ class _ShoppingListPageState extends State<ShoppingListPage> {
           return ItemTile(
             item: items[index],
             onToggleCompletion: () => toggleCompletion(index),
+            onDelete: () => deleteItem(index), // Pass the delete function
           );
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Navigate to add item form
+        onPressed: () async {
+          final newItem = await Navigator.push<ShoppingItem>(
+            context,
+            MaterialPageRoute(
+              builder: (context) => AddItem(
+                onItemAdded: (item) {
+                  setState(() {
+                    items.add(item);
+                  });
+                },
+              ),
+            ),
+          );
+
+          if (newItem != null) {
+            setState(() {
+              items.add(newItem);
+            });
+          }
         },
         backgroundColor: Colors.orange,
         child: const Icon(Icons.add),

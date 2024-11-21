@@ -30,20 +30,20 @@ class HomePage extends StatelessWidget {
             ),
             _buildListTile(
               context,
-              title: 'Drugstore',
+              title: 'Medicine',
               subtitle: '4 Products',
               icon: Icons.medical_services,
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Navigate to add item form
-        },
-        backgroundColor: accentColor,
-        child: const Icon(Icons.add),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {
+         
+      //   },
+      //   backgroundColor: accentColor,
+      //   child: const Icon(Icons.add),
+      // ),
     );
   }
 

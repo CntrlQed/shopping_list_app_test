@@ -12,6 +12,7 @@ class ShoppingListApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Shopping List',
       theme: ThemeData(
         primaryColor: primaryColor,
